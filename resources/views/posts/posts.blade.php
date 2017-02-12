@@ -4,7 +4,7 @@
                  {{$post->title}}
             </a>
             </h2>
-            <p class="blog-post-meta">{{$post->created_at->toFormattedDateString()}} <a href="#">Mark</a></p>
+            <p class="blog-post-meta">{{$post->created_at->toFormattedDateString()}} <a href="#">{{$post->user->name}}</a></p>
             <p>{{$post->body}}</p> 
 
 </div><!-- /.blog-post -->

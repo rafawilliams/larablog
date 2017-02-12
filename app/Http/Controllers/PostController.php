@@ -8,7 +8,12 @@ use Illuminate\Http\Request;
 
 class PostController extends Controller
 {
-    //
+    
+
+
+    function __construct(){
+        $this->middleware('auth')->except(['index','show']);
+    }
 
     public function index() {
 
@@ -37,7 +42,11 @@ class PostController extends Controller
         ]);
     
 
-       Post::create(request(['title','body']));
+       Post::create([
+           'title' => request('title'),
+           'body' => request('body'),
+           'user_id' => auth()->id()
+           ]);
 
        return  redirect('/');
 
