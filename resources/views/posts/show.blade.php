@@ -27,5 +27,30 @@
    </ul>
    </div>
 
+   <!-- add comments-->
+
+   <hr>
+   <div class="card">
+        <div class="card-block">
+        <form method="POST" action="/posts/{{$post->id}}/comments">
+             <!--{{method_field('PATCH')}}-->
+             {{csrf_field()}}
+            <div class="form-group">
+            
+                <textarea class="form-control" name="body" id="body"></textarea>
+            </div>
+
+            <div class="form-group">
+            
+            <button type="submit" class="btn btn-primary">Add Comment</button>
+            </div>
+
+        
+        </form>
+        @include('layout.errors')
+        
+        </div>
+   </div>
+
 </div>
 @endsection
