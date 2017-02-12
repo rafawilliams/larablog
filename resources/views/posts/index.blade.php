@@ -5,7 +5,7 @@
 <div class="col-md-8 blog-main">
 
         @foreach($posts as $post)
-            @include('posts.posts', $post)
+            @include('posts.posts')
         @endforeach
 
           <nav class="blog-pagination">

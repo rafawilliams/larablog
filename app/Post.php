@@ -7,5 +7,8 @@ use App\Base;
 
 class Post extends Base
 {
-    // protected $guard = [];
+    public function comments(){
+
+        return $this->hasMany(Comment::class);
+    }
 }
