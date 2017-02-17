@@ -3,7 +3,7 @@
 namespace App;
 
 use App\Base;
-
+use Carbon\Carbon;
 
 class Post extends Base
 {
@@ -21,5 +21,16 @@ class Post extends Base
 
         $this->comments()->create(compact('body'));
         
+    }
+
+    public function scopeFilter($query,$clause){
+
+         if($month = $clause["month"]){
+            $query->whereMonth('created_at',Carbon::parse($month)->month);
+        }
+
+        if($year = $clause["year"]){
+            $query->whereYear('created_at',$year);
+        }
     }
 }
